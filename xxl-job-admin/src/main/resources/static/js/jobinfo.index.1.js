@@ -96,6 +96,9 @@ $(function() {
 	                	"visible" : true,
 	                	"render": function ( data, type, row ) {
                             // status
+											      if(2 == data){
+															return '<small class="label label-success" >Streaming RUNNING</small>';
+														}
                             if (1 == data) {
                                 return '<small class="label label-success" >RUNNING</small>';
                             } else {
@@ -112,7 +115,7 @@ $(function() {
 
                                 // status
                                 var start_stop_div = "";
-                                if (1 == row.triggerStatus ) {
+                                if (1 == row.triggerStatus || 2 == row.triggerStatus) {
                                     start_stop_div = '<li><a href="javascript:void(0);" class="job_operate" _type="job_pause" >'+ I18n.jobinfo_opt_stop +'</a></li>\n';
                                 } else {
                                     start_stop_div = '<li><a href="javascript:void(0);" class="job_operate" _type="job_resume" >'+ I18n.jobinfo_opt_start +'</a></li>\n';

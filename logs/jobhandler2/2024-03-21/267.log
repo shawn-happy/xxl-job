@@ -1,0 +1,24 @@
+2024-03-21 20:53:10 [com.xxl.job.core.thread.JobThread#run]-[133]-[xxl-job, JobThread-2-1711025590511] <br>----------- xxl-job job execute start -----------<br>----------- Param:
+2024-03-21 20:53:10 [com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoStreamingJob]-[53]-[xxl-job, JobThread-2-1711025590511] XXL-JOB, Streaming Job Hello World.
+2024-03-21 20:53:10 [com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoStreamingJob]-[56]-[xxl-job, JobThread-2-1711025590511] beat at:1
+2024-03-21 20:53:12 [com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoStreamingJob]-[56]-[xxl-job, JobThread-2-1711025590511] beat at:2
+2024-03-21 20:53:14 [com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoStreamingJob]-[56]-[xxl-job, JobThread-2-1711025590511] beat at:3
+2024-03-21 20:53:16 [com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoStreamingJob]-[56]-[xxl-job, JobThread-2-1711025590511] beat at:4
+2024-03-21 20:53:18 [com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoStreamingJob]-[56]-[xxl-job, JobThread-2-1711025590511] beat at:5
+2024-03-21 20:53:20 [com.xxl.job.executor.service.jobhandler.SampleXxlJob#demoStreamingJob]-[56]-[xxl-job, JobThread-2-1711025590511] beat at:6
+2024-03-21 20:53:22 [com.xxl.job.core.thread.JobThread#run]-[194]-[xxl-job, JobThread-2-1711025590511] <br>----------- JobThread toStop, stopReason:web container destroy and kill the job.
+2024-03-21 20:53:22 [com.xxl.job.core.thread.JobThread#run]-[204]-[xxl-job, JobThread-2-1711025590511] <br>----------- JobThread Exception:java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.xxl.job.core.handler.impl.MethodJobHandler.execute(MethodJobHandler.java:31)
+	at com.xxl.job.core.thread.JobThread.run(JobThread.java:166)
+Caused by: java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep(Native Method)
+	at java.base/java.lang.Thread.sleep(Thread.java:339)
+	at java.base/java.util.concurrent.TimeUnit.sleep(TimeUnit.java:446)
+	at com.xxl.job.executor.service.jobhandler.SampleXxlJob.demoStreamingJob(SampleXxlJob.java:57)
+	... 6 more
+<br>----------- xxl-job job execute end(error) -----------
+2024-03-21 20:53:22 [com.xxl.job.core.thread.TriggerCallbackThread#callbackLog]-[197]-[xxl-job, executor TriggerCallbackThread] <br>----------- xxl-job job callback finish.

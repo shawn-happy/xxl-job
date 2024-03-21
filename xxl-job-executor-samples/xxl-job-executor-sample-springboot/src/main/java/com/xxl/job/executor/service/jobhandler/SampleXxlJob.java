@@ -2,6 +2,7 @@ package com.xxl.job.executor.service.jobhandler;
 
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,8 @@ import java.util.concurrent.TimeUnit;
 public class SampleXxlJob {
     private static Logger logger = LoggerFactory.getLogger(SampleXxlJob.class);
 
+    private  final AtomicInteger incr = new AtomicInteger();
+    private volatile boolean running;
 
     /**
      * 1、简单任务示例（Bean模式）
@@ -45,6 +48,17 @@ public class SampleXxlJob {
         // default success
     }
 
+    @XxlJob("demoStreamingJob")
+    public void demoStreamingJob() throws Exception {
+        XxlJobHelper.log("XXL-JOB, Streaming Job Hello World.");
+        running = true;
+        while(running){
+            XxlJobHelper.log("beat at:" + incr.incrementAndGet());
+            TimeUnit.SECONDS.sleep(2);
+        }
+
+        // default success
+    }
 
     /**
      * 2、分片广播任务

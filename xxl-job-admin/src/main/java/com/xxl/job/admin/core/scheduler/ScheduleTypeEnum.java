@@ -7,6 +7,8 @@ import com.xxl.job.admin.core.util.I18nUtil;
  */
 public enum ScheduleTypeEnum {
 
+    STREAMING(I18nUtil.getString("schedule_type_streaming")),
+
     NONE(I18nUtil.getString("schedule_type_none")),
 
     /**
